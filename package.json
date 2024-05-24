@@ -2,7 +2,7 @@
   "name": "zqradar-discord-checker",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "start": "node ."
   },
@@ -11,6 +11,8 @@
   "dependencies": {
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2"
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "winreg": "^1.2.5"
   }
 }

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>ZQRADAR</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CPoppins:400,500" rel="stylesheet">
+	
+	<link href="/css/styles.css" rel="stylesheet">
+	<link href="/css/responsive.css" rel="stylesheet">
+	
+</head>
+<body>
+	
+	<div class="main-area center-text" style="background-image:url(/images/14351544_5429296.jpg);">
+		
+		<div class="display-table">
+			<div class="display-table-cell">
+				
+				<h1 id="title" class="title font-white"><strong>Albion Online ZQRADAR</strong></h1>
+                <p id="line1" class="desc font-white">You are not connected to the discord server</p>
+                <p id="line2" class="desc font-white">This radar is <strong>FREE</strong>, and will stay free forever</p>
+                <p id="line3" class="desc font-white">If you buyed something, you got <strong>SCAMMED</strong></p>
+                <br>
+				<a id="discord" class="notify-btn" href="https://discord.gg/XAWjmzeaD3" target="_blank"><strong>JOIN THE DISCORD</strong></a>
+				
+				<ul class="social-btn font-white">
+					<li><button onclick="ChangeLanguage('English');">English</button></li>
+					<li><button onclick="ChangeLanguage('Spanish');">Español</button></li>
+					<li><button onclick="ChangeLanguage('Portuguese');">Português</button></li>
+					<li><button onclick="ChangeLanguage('French');">Français</button></li>
+					<li><button onclick="ChangeLanguage('German');">Deutsch</button></li>
+					<li><button onclick="ChangeLanguage('Russian');">Русский</button></li>
+					<li><button onclick="ChangeLanguage('Mandarin');">普通话</button></li>
+				</ul><!-- social-btn -->
+				
+			</div><!-- display-table -->
+		</div><!-- display-table-cell -->
+	</div><!-- main-area -->
+	
+</body>
+</html>
+
+<script>
+    let title = document.getElementById('title');
+    let line1 = document.getElementById('line1');
+    let line2 = document.getElementById('line2');
+    let line3 = document.getElementById('line3');
+    let discord = document.getElementById('discord');
+
+    function ChangeLanguage(language)
+    {
+        switch (language)
+        {
+            case "English":
+                SetLanguage('/languages/english.json');
+                break;
+
+            case "Spanish":
+                SetLanguage('/languages/spanish.json');
+                break;
+
+            case "Portuguese":
+                SetLanguage('/languages/portuguese.json');
+                break;
+
+            case "French":
+                SetLanguage('/languages/french.json');
+                break;
+
+            case "German":
+                SetLanguage('/languages/german.json');
+                break;
+
+            case "Russian":
+                SetLanguage('/languages/russian.json');
+                break;
+
+            case "Mandarin":
+                SetLanguage('/languages/mandarin.json');
+                break;
+        }
+    }
+
+    function SetLanguage(jsonPath)
+    {
+        fetch(jsonPath)
+        .then(response => response.json())
+        .then(json => {
+            title.innerHTML = json.title;
+            line1.innerHTML = json.line1;
+            line2.innerHTML = json.line2;
+            line3.innerHTML = json.line3;
+            discord.innerHTML = json.discord;
+        });
+    }
+</script>
