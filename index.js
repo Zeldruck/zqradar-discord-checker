@@ -71,12 +71,14 @@ app.get('/api/auth/discord/redirect', async (req, res) => {
                 {
                     let auth = fs.readFileSync('auth.auth.auth');
 
-                    if (auth)
-                    {
-                        auth = auth.toString().replaceAll(new RegExp('\r', 'g'), '').split('\n');
+                    auth = auth.toString().replaceAll(new RegExp('\r', 'g'), '').split('\n');
 
+                    if (auth.length > 1)
+                    {
+                        
                         if (auth[0] != hwidStr)
                         {
+                            fs.rmSync('auth.auth.auth');
                             res.render('no-access');
                             return;
                         }
