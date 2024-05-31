@@ -62,8 +62,6 @@ app.get('/api/auth/discord/redirect', async (req, res) => {
             
             if (g)
             {
-                // TODO
-                // Time limit to check again & lock hwid so can't be bypassed
                 const hwid = new HWID();
                 const hwidStr = await hwid.getHWID();
 
